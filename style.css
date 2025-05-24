@@ -1,0 +1,148 @@
+@font-face {
+    font-family: 'RymanEco';
+    src: url('./font/Ryman-Regular.woff2') format('woff2'),
+        url('./font/Ryman-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+h2, .ancizar-serif-paragraph {
+    text-align: center;
+}
+
+/* Progress Bar */
+#progress {
+  position: fixed;
+  top: 0;
+  left: -1px;
+  height: 4px;
+  width: 0%;
+  background-color: #000; /* 또는 원하는 색상 */
+  z-index: 1000;
+  border-radius: 2px;
+}
+
+  
+/* 기본 초기화 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f9f8f4; /* 따뜻한 대리석톤 */
+  color: #1e1e1e;
+  line-height: 1.7;
+  font-family: 'Ancizar Serif', serif;
+  font-weight: 300;
+  font-style: normal;
+  font-optical-sizing: auto;
+  scroll-behavior: smooth;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0; /* 가장 아래에 깔리게 */
+}
+
+
+header img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+header .black-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 11;
+  pointer-events: none;
+}
+
+h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'RymanEco', sans-serif;
+  font-weight: 400;
+  font-size: 6vw;
+  color: white;
+  z-index: 12;
+  text-align: center;
+  white-space: nowrap;
+  letter-spacing: 2px;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+  margin-top: 100vh;
+  max-width: 95%;
+  padding: 10px;
+  background: #f9f8f4;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.paragraph {
+  opacity: 0%;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.paragraph.visible {
+  opacity: 100%;
+}
+
+.text-block {
+  max-width: 700px;
+  margin: 0 auto; 
+  text-align: left;
+}
+
+h2 {
+  font-family: 'RymanEco', sans-serif;
+  font-weight: 200;
+  font-size: 2rem;
+  margin: 60px 0 20px;
+  color: #222;
+}
+
+.ancizar-serif-paragraph {
+  font-size: 1.15rem;
+  margin-bottom: 40px;
+  color: #444;
+}
+
+.article-img {
+  display: block;
+  margin: 0 auto 60px auto; /* 중앙 정렬 + 아래 여백 */
+  width: 50%; /* 좀 더 시원한 크기로 조절해도 OK */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+/* 푸터 스타일링 */
+footer {
+  text-align: center;
+  padding: 60px 20px;
+  color: #aaa;
+  font-size: 0.9rem;
+}
