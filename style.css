@@ -21,8 +21,8 @@ h2, .ancizar-serif-paragraph {
   background-color: #000; /* 또는 원하는 색상 */
   z-index: 1000;
   border-radius: 2px;
+  transition: width 120ms ease-out;
 }
-
   
 /* 기본 초기화 */
 * {
@@ -72,11 +72,14 @@ header .black-overlay {
   pointer-events: none;
 }
 
-h1 {
+.title-text {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+h1 {
   font-family: 'RymanEco', sans-serif;
   font-weight: 400;
   font-size: 6vw;
@@ -110,9 +113,13 @@ main {
 }
 
 .text-block {
-  max-width: 700px;
+  max-width: 50vw;
   margin: 0 auto; 
   text-align: left;
+}
+
+.img-overlay > :first-child {
+  max-width: 30vw;
 }
 
 h2 {
@@ -129,15 +136,78 @@ h2 {
   color: #444;
 }
 
-.article-img {
-  display: block;
-  margin: 0 auto 60px auto; /* 중앙 정렬 + 아래 여백 */
-  width: 50%; /* 좀 더 시원한 크기로 조절해도 OK */
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.img-overlay {
+  position: fixed;
+  opacity: 0;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
+.move-x {
+  transform: translateX(-15vw);
+}
+
+.img-overlay.visible {
+  opacity: 1;
+  z-index: 10;
+  pointer-events: all;
+}
+
+.overlay-title {
+  position: relative;
+  top: 30vh;
+  right: -30vw;
+  z-index: 11;
+  color: whitesmoke;
+}
+
+.overlay-text {
+  position: relative;
+  top: 35vh;
+  right: -30vw;
+  z-index: 11;
+  color: whitesmoke;
+}
+
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto 60px auto;
+  width: 50%;
+  border-radius: 8px;
+  transition: transform 0.45s ease;
+}
+
+
+.article-img {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  opacity: 1;
+}
+
+.hover-disabled {
+  pointer-events: none;
+}
+
+.article-img:hover {
+  transform: scale(1.05);
+}
+
+.image-wrapper.ontop {
+  z-index: 11;
+}
 
 /* 푸터 스타일링 */
 footer {
